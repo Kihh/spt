@@ -25,6 +25,11 @@ COPY results/*.ttf /speedtest/results/
 COPY *.js /speedtest/
 COPY favicon.ico /speedtest/
 
+COPY docker/servers.json /servers.json
+
+COPY docker/*.php /speedtest/
+COPY docker/entrypoint.sh /
+
 # Prepare environment variabiles defaults
 
 ENV TITLE=LibreSpeed
@@ -38,3 +43,4 @@ ENV WEBPORT=80
 # Final touches
 
 EXPOSE 80
+CMD ["bash", "/entrypoint.sh"]
